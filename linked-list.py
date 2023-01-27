@@ -45,9 +45,20 @@ class LinkedList:
 		self.head.pointer = None
 		self.head = new_head	
 		
-	def remove_after(self):
-		pass
-	
+	def remove_after(self, targetNode):
+		node = self.head
+
+		while node is not None:
+			if node.data == targetNode.data:
+				# e->c->d->a->None
+				# node = c
+				removedNode = node.pointer
+				node.pointer = removedNode.pointer
+				removedNode.pointer = None
+				node = None
+			else:
+				node = node.pointer
+		
 	def find(self, targetNode):
 		node = self.head
 		requiredNode = None
@@ -105,3 +116,6 @@ linkedList.add_after(nodeC, Node("d"))
 print(linkedList.show())
 
 print(linkedList.find(node1))
+linkedList.add_beginning(Node("e"))
+linkedList.remove_after(nodeC)
+print(linkedList.show())
