@@ -26,8 +26,18 @@ class LinkedList:
 	def add_beginning(self, node):
 		node.pointer, self.head = self.head, node
 		
-	def add_after(self):
-		pass
+	def add_after(self, targetNode, newNode):
+		node = self.head
+
+		while node is not None:
+			if targetNode.data == node.data:
+				attachedNode = targetNode.pointer
+				targetNode.pointer = newNode
+				newNode.pointer = attachedNode
+				node = None
+			else:
+				node = node.pointer
+		
 
 	def remove_beginning(self):
 		new_head = self.head.pointer
@@ -72,4 +82,10 @@ linkedList.add_beginning(Node("b"))
 
 print(linkedList.show())
 linkedList.remove_beginning()
+print(linkedList.show())
+
+nodeC = Node("c")
+
+linkedList.add_beginning(nodeC)
+linkedList.add_after(nodeC, Node("d"))
 print(linkedList.show())
