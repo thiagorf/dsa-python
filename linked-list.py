@@ -48,8 +48,22 @@ class LinkedList:
 	def remove_after(self):
 		pass
 	
-	def find(self, node):
-		pass
+	def find(self, targetNode):
+		node = self.head
+		requiredNode = None
+
+
+		while node is not None:
+			if node.data == targetNode.data:
+				requiredNode = node
+				node = None
+			else:
+				node = node.pointer
+
+		if requiredNode is None:
+			return "Invalid node"
+		else:
+			return requiredNode
 
 	def show(self):
 		node = self.head
@@ -89,3 +103,5 @@ nodeC = Node("c")
 linkedList.add_beginning(nodeC)
 linkedList.add_after(nodeC, Node("d"))
 print(linkedList.show())
+
+print(linkedList.find(node1))
