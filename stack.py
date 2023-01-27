@@ -2,7 +2,7 @@
 """
 	Stack Data Structure:
 
-    How it works: Stack user the LIFO acronym last in first out, so
+    How it works: Stack uses the LIFO acronym last in first out, so
     the first element added to the stack is the last one to leave
 
     It has two methods:
