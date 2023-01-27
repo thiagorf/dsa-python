@@ -12,7 +12,7 @@
 	Operations
 		insert_beginning
 		insert_after
-		remove_veginning
+		remove_beginning
 		remove_after
 		find
 		show
