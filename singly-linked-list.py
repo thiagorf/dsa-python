@@ -83,8 +83,8 @@ class LinkedList:
 		while node is not None:
 			nodes.append(node.data)
 			node = node.pointer
-		nodes.append("None")
-
+			
+		
 		return " -> ".join(nodes)
 
 	

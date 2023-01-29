@@ -1,3 +1,29 @@
+"""
+	Doubly Linked List
+
+	has the same concepts as the singly linked list but  with the addition of the previous cursor
+
+	LinkedList:
+		head
+
+	Node:
+		prev
+		data
+		next
+
+	Example:
+		NodeA:
+			prev: None
+			data: a
+			next NodeB
+		NodeB:
+			prev: NodeA
+			data: b
+			next: None
+	
+	None <- a <-> b -> None
+"""
+
 class DoublyLinkedList:
 	def __init__(self, head = None):
 		self.head = head
