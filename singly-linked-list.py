@@ -20,82 +20,78 @@
 
 
 class LinkedList:
-	def __init__(self, head = None):
-		self.head = head
+    def __init__(self, head=None):
+        self.head = head
 
-	def add_beginning(self, node):
-		node.pointer, self.head = self.head, node
-		
-	def add_after(self, targetNode, newNode):
-		node = self.head
+    def add_beginning(self, node):
+        node.pointer, self.head = self.head, node
 
-		while node is not None:
-			if targetNode.data == node.data:
-				attachedNode = targetNode.pointer
-				targetNode.pointer = newNode
-				newNode.pointer = attachedNode
-				node = None
-			else:
-				node = node.pointer
-		
+    def add_after(self, targetNode, newNode):
+        node = self.head
 
-	def remove_beginning(self):
-		new_head = self.head.pointer
+        while node is not None:
+            if targetNode.data == node.data:
+                attachedNode = targetNode.pointer
+                targetNode.pointer = newNode
+                newNode.pointer = attachedNode
+                node = None
+            else:
+                node = node.pointer
 
-		self.head.pointer = None
-		self.head = new_head	
-		
-	def remove_after(self, targetNode):
-		node = self.head
+    def remove_beginning(self):
+        new_head = self.head.pointer
 
-		while node is not None:
-			if node.data == targetNode.data:
-				# e->c->d->a->None
-				# node = c
-				removedNode = node.pointer
-				node.pointer = removedNode.pointer
-				removedNode.pointer = None
-				node = None
-			else:
-				node = node.pointer
-		
-	def find(self, targetNode):
-		node = self.head
-		requiredNode = None
+        self.head.pointer = None
+        self.head = new_head
 
+    def remove_after(self, targetNode):
+        node = self.head
 
-		while node is not None:
-			if node.data == targetNode.data:
-				requiredNode = node
-				node = None
-			else:
-				node = node.pointer
+        while node is not None:
+            if node.data == targetNode.data:
+                # e->c->d->a->None
+                # node = c
+                removedNode = node.pointer
+                node.pointer = removedNode.pointer
+                removedNode.pointer = None
+                node = None
+            else:
+                node = node.pointer
 
-		if requiredNode is None:
-			return "Invalid node"
-		else:
-			return requiredNode
+    def find(self, targetNode):
+        node = self.head
+        requiredNode = None
 
-	def show(self):
-		node = self.head
-		nodes = list()
+        while node is not None:
+            if node.data == targetNode.data:
+                requiredNode = node
+                node = None
+            else:
+                node = node.pointer
 
-		while node is not None:
-			nodes.append(node.data)
-			node = node.pointer
-			
-		
-		return " -> ".join(nodes)
+        if requiredNode is None:
+            return "Invalid node"
+        else:
+            return requiredNode
 
-	
+    def show(self):
+        node = self.head
+        nodes = list()
+
+        while node is not None:
+            nodes.append(node.data)
+            node = node.pointer
+
+        return " -> ".join(nodes)
+
 
 class Node:
-	def __init__(self, data):
-		self.data = data
-		self.pointer = None
+    def __init__(self, data):
+        self.data = data
+        self.pointer = None
 
-	def __repr__(self):
-		return self.data
+    def __repr__(self):
+        return self.data
 
 
 node1 = Node("a")

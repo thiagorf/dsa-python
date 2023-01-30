@@ -24,73 +24,76 @@
 	None <- a <-> b -> None
 """
 
+
 class DoublyLinkedList:
-	def __init__(self, head = None):
-		self.head = head
-		self.size = 0 if head == None else 1 
+    def __init__(self, head=None):
+        self.head = head
+        self.size = 0 if head == None else 1
 
-	def add_beginning(self, node):
-		if self.size == 0:
-			self.head = node
-			self.size += 1
-		else:
-			node.next = self.head
-			self.head.prev = node
-			self.head = node
-			self.size += 1
-		
-	def add_after(self, targetNode, newNode):
-		# None <- b <-> a -> None
-		node = self.head
-		initialSize = self.size
-		while node is not None:
-			if node.data == targetNode.data:
-				nextNode = node.next
-				newNode.prev, newNode.next = node, nextNode
-				node.next = newNode
-				nextNode.prev = newNode
-				node = None
-				self.size += 1
-			else:
-				node = node.next
-		if initialSize == self.size:
-			# If the size doesn't change, it means that the target node doesn't exist
-			print("Invalid target node")
-	
+    def add_beginning(self, node):
+        if self.size == 0:
+            self.head = node
+            self.size += 1
+        else:
+            node.next = self.head
+            self.head.prev = node
+            self.head = node
+            self.size += 1
 
-	def remove_beginning(self):
-		pass
-	def	remove_after(self):
-		pass
-	def	find(self):
-		pass
-	def	show(self):
-		node = self.head
-		nodes = list()
+    def add_after(self, targetNode, newNode):
+        # None <- b <-> a -> None
+        node = self.head
+        initialSize = self.size
+        while node is not None:
+            if node.data == targetNode.data:
+                nextNode = node.next
+                newNode.prev, newNode.next = node, nextNode
+                node.next = newNode
+                nextNode.prev = newNode
+                node = None
+                self.size += 1
+            else:
+                node = node.next
+        if initialSize == self.size:
+            # If the size doesn't change, it means that the target node doesn't exist
+            print("Invalid target node")
 
-		# None <- a <-> b -> None
+    def remove_beginning(self):
+        pass
 
-		while node is not None:
-			nodes.append(node.data)
-			node = node.next
-		nodes.insert(0, "None")
-		nodes.append("None")
+    def remove_after(self):
+        pass
 
-		stringRepr = " <-> ".join(nodes)
+    def find(self):
+        pass
 
-		listString = stringRepr.split()
+    def show(self):
+        node = self.head
+        nodes = list()
 
-		listString[1] = " <- "
-		listString[-2] = " -> "
+        # None <- a <-> b -> None
 
-		
-		return " ".join(listString)
+        while node is not None:
+            nodes.append(node.data)
+            node = node.next
+        nodes.insert(0, "None")
+        nodes.append("None")
+
+        stringRepr = " <-> ".join(nodes)
+
+        listString = stringRepr.split()
+
+        listString[1] = " <- "
+        listString[-2] = " -> "
+
+        return " ".join(listString)
+
 
 class Node:
-	def __init__(self, data):
-		self.prev = None
-		self.data = data
-		self.next = None
+    def __init__(self, data):
+        self.prev = None
+        self.data = data
+        self.next = None
 
 
 linkedList = DoublyLinkedList(Node("a"))

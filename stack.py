@@ -1,4 +1,3 @@
-
 """
 	Stack Data Structure:
 
@@ -12,44 +11,44 @@
 
 
 class Stack:
+    def __init__(self):
+        self.stack = list()
 
-	def __init__(self):
-		self.stack = list()
-		
+    def push(self, data):
+        self.stack.append(data)
 
-	def push(self, data):
-		self.stack.append(data)
-	def pop(self):
-		if len(self.stack) - 1 == -1:
-			print("Stack is already empty")
-		else:
-			self.stack.pop()
+    def pop(self):
+        if len(self.stack) - 1 == -1:
+            print("Stack is already empty")
+        else:
+            self.stack.pop()
 
-	def show(self):
+    def show(self):
 
-		if not self.stack:
-			print("| | <- stack is empty",end='\n\n')
-			return
+        if not self.stack:
+            print("| | <- stack is empty", end="\n\n")
+            return
 
-		for i, stackItem in enumerate(reversed(self.stack)):
-			length = len(self.stack)
+        for i, stackItem in enumerate(reversed(self.stack)):
+            length = len(self.stack)
 
-			if length == 1:
-				print("|%i| <- unique element" % stackItem,end='\n')
-				break
+            if length == 1:
+                print("|%i| <- unique element" % stackItem, end="\n")
+                break
 
-			if i != length - 1:
-				if i == 0:
-					print("|%i| <- last element" % stackItem,end='\n')
-				else:	
-					print("|%i|" % stackItem,end='\n')
-			else:
-				print("|%i| <- first element" % stackItem,end='\n\n')	
-	def peek(self):
-		if len(self.stack) != 0:
-			print("%s  top of the stack" % self.stack[-1:])
-		else:
-			print("Stack is empty!")
+            if i != length - 1:
+                if i == 0:
+                    print("|%i| <- last element" % stackItem, end="\n")
+                else:
+                    print("|%i|" % stackItem, end="\n")
+            else:
+                print("|%i| <- first element" % stackItem, end="\n\n")
+
+    def peek(self):
+        if len(self.stack) != 0:
+            print("%s  top of the stack" % self.stack[-1:])
+        else:
+            print("Stack is empty!")
 
 
 stack = Stack()

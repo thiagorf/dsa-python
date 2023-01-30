@@ -9,31 +9,31 @@
         dequeue: removes the first element in the queue
 """
 
+
 class Queue:
+    def __init__(self):
+        self.queue = list()
 
-	def __init__(self):
-		self.queue = list()
+    def enqueue(self, data):
+        self.queue.append(data)
 
-	def enqueue(self, data):
-		self.queue.append(data)
-		
-	def dequeue(self):
-		if len(self.queue) - 1 == -1:
-			print("Queue is empty")
-			return
-		else:
-			# first element
-			self.queue.pop(0)
+    def dequeue(self):
+        if len(self.queue) - 1 == -1:
+            print("Queue is empty")
+            return
+        else:
+            # first element
+            self.queue.pop(0)
 
-	def peek(self):
-		if len(self.queue) == 0:
-			print("Queue is empty")
-		else:
-			print("|%i| <- Next element to be dequeue" % self.queue[0])
-	def show(self):
-		print(self.queue)
+    def peek(self):
+        if len(self.queue) == 0:
+            print("Queue is empty")
+        else:
+            print("|%i| <- Next element to be dequeue" % self.queue[0])
 
-	
+    def show(self):
+        print(self.queue)
+
 
 queue = Queue()
 
