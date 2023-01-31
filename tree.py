@@ -12,6 +12,14 @@ def inorder(root):
         inorder(root.right)
 
 
+"""
+	1
+   /\
+  12 9
+ /\
+5  6	
+"""
+
 root = Node("1")
 root.left = Node("12")
 root.right = Node("9")
