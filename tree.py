@@ -12,8 +12,22 @@ def inorder(root):
         inorder(root.right)
 
 
+def preorder(root):
+    if root:
+        print(root.data + " -> ", end="")
+        preorder(root.left)
+        preorder(root.right)
+
+
+def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.data + " -> ", end="")
+
+
 """
-	1
+    1
    /\
   12 9
  /\
@@ -29,3 +43,10 @@ root.left.right = Node("6")
 
 print("Inorder sequence: ")
 inorder(root)
+
+print("\n\nPreorder sequence: ")
+preorder(root)
+
+print("\n\nPostorder sequence: ")
+postorder(root)
+print(" ")
