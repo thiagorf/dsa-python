@@ -5,6 +5,8 @@ python3 file_name.py
 Example python3 max-heap.py
 ```
 
+## Data Structure
+
 - [x] Queue
 - [x] Stack
 - [x] Linked List (singly)
@@ -13,3 +15,10 @@ Example python3 max-heap.py
 - [x] Max Heap
 - [ ] Trees
 - [ ] Graph
+
+## Algorithms
+
+- [x] Buble sort
+- [x] Selection sort
+- [x] Insertion sort
+- [ ] Merge sort
