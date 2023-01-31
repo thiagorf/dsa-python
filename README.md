@@ -13,7 +13,8 @@ Example python3 max-heap.py
 - [ ] Linked List (Doubly)
 - [ ] Linked List (Circular)
 - [x] Max Heap
-- [ ] Trees
+- [x] Tree
+- [ ] Binary Search Tree
 - [ ] Graph
 
 ## Algorithms
