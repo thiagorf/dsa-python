@@ -10,7 +10,7 @@ Example python3 max-heap.py
 - [x] Queue
 - [x] Stack
 - [x] Linked List (singly)
-- [ ] Linked List (Doubly)
+- [x] Linked List (Doubly)
 - [ ] Linked List (Circular)
 - [x] Max Heap
 - [x] Tree
