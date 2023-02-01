@@ -37,12 +37,25 @@ def addNode(root, value):
 
 def removeNode(root, value):
     if root == None:
-        return root
+        return None
 
     if value > root.data:
         root.right = removeNode(root.right, value)
-    else:
+    elif value < root.data:
         root.left = removeNode(root.left, value)
+    else:
+        if not root.left and root.right:
+            return root.right
+        if not root.right and root.left:
+            return root.left
+        if root.left and root.right:
+            temp = root.right
+
+            while temp.left:
+                temp = temp.left
+
+            root.data = temp.data
+            root.right = removeNode(root.right, value)
 
 
 root = Node(5)
@@ -60,3 +73,6 @@ print("8 is a valid node? %s" % find(root, 8))
 
 print("add Node(%s)" % addNode(root, 10))
 print("10 is a valid node? %s" % find(root, 10))
+
+removeNode(root, 9)
+print("9 is a valid node? %s" % find(root, 9))
