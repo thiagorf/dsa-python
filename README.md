@@ -14,7 +14,7 @@ Example python3 max-heap.py
 - [ ] Linked List (Circular)
 - [x] Max Heap
 - [x] Tree
-- [ ] Binary Search Tree
+- [x] Binary Search Tree
 - [ ] Graph
 
 ## Algorithms
