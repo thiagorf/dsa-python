@@ -43,6 +43,13 @@ class AvlTree:
             return -1
         return node.height
 
+    def findBalance(self, node):
+        if node == None:
+            return 0
+        balance = self.findHeight(node.left) - self.findHeight(node.right)
+
+        return balance
+
 
 sequenceAfterRoot = [9, 53, 8, 21, 61, 11]
 
@@ -56,3 +63,6 @@ for node in sequenceAfterRoot:
 print("Node 61 height:  %i" % avlTree.findHeight(root.right.right))
 print("Node 9 height:  %i" % avlTree.findHeight(root.left))
 print("Root node (33) height: %i" % avlTree.findHeight(root))
+print("Node 61 balance: %i" % avlTree.findBalance(root.right.right))
+print("Node 9 balance: %i" % avlTree.findBalance(root.left))
+print("Root node (33) balance: %i" % avlTree.findBalance(root))
