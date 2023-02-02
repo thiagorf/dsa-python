@@ -9,7 +9,7 @@ class Node:
         self.left = None
         self.right = None
         self.data = data
-        # why there so many articles out there with the height of 1?
+        # why are there so many articles out there with the height of 1?
         self.height = 0
 
 
