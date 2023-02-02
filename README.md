@@ -15,6 +15,7 @@ Example python3 max-heap.py
 - [x] Max Heap
 - [x] Tree
 - [x] Binary Search Tree
+- [ ] Avl Tree
 - [ ] Graph
 
 ## Algorithms
