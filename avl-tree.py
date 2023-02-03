@@ -25,6 +25,12 @@ class Node:
 
 
 class AvlTree:
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(str(root.data) + " -> ", end="")
+            self.inorder(root.right)
+
     def add_node(self, root, value):
         if root == None:
             return Node(value)
@@ -34,9 +40,52 @@ class AvlTree:
         else:
             root.left = self.add_node(root.left, value)
 
+        print(root.data)
         root.height = 1 + max(self.findHeight(root.left), self.findHeight(root.right))
+        # -1
+        # {-1, 0, 1}
+        balance = self.findBalance(root)
+
+        print(balance)
+        if balance > 1:
+            if value < root.left.data:
+                return self.rightRotate(root)
+            else:
+                root.left = self.leftRotate(root.left)
+                return self.rightRotate(root)
+        if balance < -1:
+            if value > root.right.data:
+                return self.leftRotate(root)
+            else:
+                root.right = self.rightRotate(root.right)
+
+                return self.leftRotate(root)
 
         return root
+
+    def leftRotate(self, x):
+        y = x.right
+        b = y.left
+
+        y.left = x
+        x.right = b
+
+        x.height = 1 + max(self.findHeight(x.left), self.findHeight(x.right))
+        y.height = 1 + max(self.findHeight(y.left), self.findHeight(y.right))
+
+        return y
+
+    def rightRotate(self, x):
+        y = x.left
+        b = y.right
+
+        y.right = x
+        x.left = b
+
+        x.height = 1 + max(self.findHeight(x.left), self.findHeight(x.right))
+        y.height = 1 + max(self.findHeight(y.left), self.findHeight(y.right))
+
+        return y
 
     def findHeight(self, node):
         if node == None:
@@ -59,10 +108,15 @@ avlTree = AvlTree()
 for node in sequenceAfterRoot:
     avlTree.add_node(root, node)
 
-
+"""
 print("Node 61 height:  %i" % avlTree.findHeight(root.right.right))
 print("Node 9 height:  %i" % avlTree.findHeight(root.left))
 print("Root node (33) height: %i" % avlTree.findHeight(root))
 print("Node 61 balance: %i" % avlTree.findBalance(root.right.right))
 print("Node 9 balance: %i" % avlTree.findBalance(root.left))
 print("Root node (33) balance: %i" % avlTree.findBalance(root))
+"""
+print("Next")
+avlTree.add_node(root, 12)
+print("Node 9 balance: %i" % avlTree.findBalance(root.left))
+avlTree.inorder(root)
