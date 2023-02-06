@@ -41,22 +41,43 @@ class AvlTree:
             root.left = self.add_node(root.left, value)
 
         root.height = max(self.findHeight(root.left), self.findHeight(root.right))
-        # -1
         # {-1, 0, 1}
         balance = self.findBalance(root)
 
+		# balance factor > 1
+		# tree is left heavy
         if balance > 1:
             if value < root.left.data:
                 return self.rightRotate(root.right)
             else:
+				# left-right rotate is only possible
+				# when the left child of a node is less than the new node
+				"""
+				       21  <- root in this subtree
+					  /
+				     11	<- left child of root
+					  \
+				   	  12 < - new Node
+				"""
                 root.left = self.leftRotate(root.left)
 
                 return self.rightRotate(root.right)
 
+		# balance factor < -1
+		# tree is right heavy
         if balance < -1:
             if value > root.right.data:
                 return self.leftRotate(root.left)
             else:
+				# right-left rotate is only possible
+				# when the right child of a node is greater than the new node
+				"""
+				       21  <- root in this subtree
+					    \
+				        36	<- right child of root
+					    /
+				   	  28 < - new Node
+				"""
                 root.right = self.rightRotate(root.right)
 
                 return self.leftRotate(root.left)
