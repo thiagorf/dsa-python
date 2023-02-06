@@ -40,27 +40,26 @@ class AvlTree:
         else:
             root.left = self.add_node(root.left, value)
 
-        print(root.data)
-        root.height = 1 + max(self.findHeight(root.left), self.findHeight(root.right))
+        root.height = max(self.findHeight(root.left), self.findHeight(root.right))
         # -1
         # {-1, 0, 1}
         balance = self.findBalance(root)
 
-        print(balance)
         if balance > 1:
             if value < root.left.data:
-                return self.rightRotate(root)
+                return self.rightRotate(root.right)
             else:
                 root.left = self.leftRotate(root.left)
-                return self.rightRotate(root)
+
+                return self.rightRotate(root.right)
+
         if balance < -1:
             if value > root.right.data:
-                return self.leftRotate(root)
+                return self.leftRotate(root.left)
             else:
                 root.right = self.rightRotate(root.right)
 
-                return self.leftRotate(root)
-
+                return self.leftRotate(root.left)
         return root
 
     def leftRotate(self, x):
